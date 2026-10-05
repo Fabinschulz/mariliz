@@ -1,0 +1,109 @@
+@use '@/shared/styles/abstracts' as *;
+
+$gap: var(--space-6);
+
+.marquee {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  padding-inline: var(--space-8);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.track {
+  display: block;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}
+
+.copy {
+  display: none;
+}
+
+.item {
+  @include signal-dot(3px);
+  gap: var(--space-2);
+  padding: var(--space-2);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color var(--duration-slow) var(--ease-spring);
+
+  &::before {
+    box-shadow: none;
+  }
+
+  @include hover {
+    color: var(--color-text);
+  }
+}
+
+.toggle {
+  @include round-icon-button(2.25rem);
+  display: none;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+@include motion-safe {
+  .viewport {
+    // Bordas esmaecidas: as tecnologias entram e saem sem corte seco.
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 70s linear infinite;
+    will-change: transform;
+  }
+
+  .group {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    // O respiro final iguala o espaço entre itens: o salto do laço (-50%) fica imperceptível.
+    padding-inline-end: $gap;
+  }
+
+  .copy {
+    display: flex;
+  }
+
+  .toggle {
+    display: inline-grid;
+  }
+
+  // Pausa ao passar o mouse, ao focar dentro e pelo botão (WCAG 2.2.2).
+  .marquee[data-paused] .track,
+  .marquee:focus-within .track {
+    animation-play-state: paused;
+  }
+
+  .viewport:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}

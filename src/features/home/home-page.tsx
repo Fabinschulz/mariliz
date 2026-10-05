@@ -7,11 +7,13 @@ import { DeliveryLog } from './delivery-log';
 import { Hero } from './hero';
 import styles from './home-page.module.scss';
 import { StackList } from './stack-list';
+import { TechMarquee } from './tech-marquee';
 
 export function HomePage() {
   return (
     <>
       <Hero />
+      <TechMarquee services={services} />
 
       <Section labelledBy="services-title" tone="mist">
         <SectionHeader

@@ -76,6 +76,10 @@ O "ponto de turquesa" (`@include signal-dot`) é decorativo e usa o teal puro em
 - `DeliveryLog` (home): janela de terminal com o pipeline de entrega, marcada como "exemplo" e sem
   números inventados. As linhas entram uma a uma com GSAP; sem JS ou com movimento reduzido, nasce
   completa. O cursor pisca 4 vezes (< 5 s, WCAG 2.2.2).
+- `TechMarquee` (home): faixa de tecnologias que rola sozinha logo abaixo do hero, com as tecnologias
+  derivadas dos serviços (sem duplicatas). Laço contínuo em CSS puro (lista duplicada, cópia com
+  `aria-hidden`), bordas esmaecidas e pausa ao passar o mouse, ao focar e pelo botão (WCAG 2.2.2). Com
+  `prefers-reduced-motion`, vira uma lista estática em linhas, sem cópia nem botão.
 - Rodapé: cartão de contato com o WhatsApp em tamanho de título.
 - Botão flutuante do WhatsApp sai de cena quando uma área com `data-hides-float` (CTA final e
   rodapé) está visível, e volta a aparecer ao rolar para cima.

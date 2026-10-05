@@ -55,7 +55,7 @@ export const services: readonly Service[] = [
     name: 'Aplicativos mobile',
     shortName: 'Mobile',
     summary:
-      'Apps iOS e Android com experiência nativa, publicação nas lojas e evolução contínua depois do lançamento.',
+      'Apps iOS e Android com Flutter e React Native, publicação nas lojas e evolução contínua depois do lançamento.',
     seo: {
       title: 'Desenvolvimento de aplicativos iOS e Android',
       description:
@@ -76,7 +76,8 @@ export const services: readonly Service[] = [
       },
       {
         title: 'Duas bases de código caras de manter',
-        description: 'Avaliação honesta entre nativo e multiplataforma, considerando o seu produto e o seu time.'
+        description:
+          'Uma única base para iOS e Android, com Flutter ou React Native, escolhida pelo seu produto e pelo seu time.'
       }
     ],
     deliverables: [
@@ -86,19 +87,19 @@ export const services: readonly Service[] = [
       'Pipeline de build e distribuição automatizados',
       'Crash reporting e métricas de uso'
     ],
-    stack: ['React Native', 'Swift', 'Kotlin', 'Expo', 'Firebase', 'TypeScript'],
+    stack: ['Flutter', 'Dart', 'React Native', 'Expo', 'Firebase', 'TypeScript'],
     faq: [
       {
-        question: 'Nativo ou multiplataforma?',
+        question: 'Flutter ou React Native?',
         answer:
-          'Depende de requisitos como uso de hardware, performance e tamanho do time. Recomendamos a abordagem depois de entender o produto, nunca antes.'
+          'Os dois entregam iOS e Android a partir de uma única base de código. A escolha depende do produto, das integrações necessárias e do time que vai mantê-lo (Dart ou TypeScript). Recomendamos depois de entender o cenário, nunca antes.'
       },
       {
         question: 'Vocês publicam nas lojas?',
         answer: 'Sim. Cuidamos do processo de submissão na App Store e na Google Play, incluindo as revisões das lojas.'
       }
     ],
-    keywords: ['app', 'aplicativo', 'ios', 'android', 'react native', 'celular', 'smartphone']
+    keywords: ['app', 'aplicativo', 'ios', 'android', 'flutter', 'dart', 'react native', 'celular', 'smartphone']
   },
   {
     slug: 'infraestrutura-em-nuvem',
