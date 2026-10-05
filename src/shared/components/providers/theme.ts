@@ -1,6 +1,5 @@
 import { alpha, type ThemeOptions } from '@mui/material/styles';
 import { initializeTheme } from '@synthra.io/ui-kit';
-
 import { brandPalette as c } from './brand-palette';
 import { LinkBehavior } from './link-behavior';
 
@@ -22,10 +21,6 @@ const typography = {
   ...Object.fromEntries(TYPOGRAPHY_VARIANTS.map((variant) => [variant, { fontFamily: FONT_SANS }]))
 };
 
-/**
- * Turquesa como texto/realce: #33C1BA sobre preto (9,5:1), mas sobre branco só
- * 2,2:1, então a superfície clara usa o teal-700 (6,3:1) como `primary.main`.
- */
 const primaryBySurface: Record<Surface, ThemeOptions['palette']> = {
   dark: {
     primary: { light: c.teal300, main: c.teal400, dark: c.teal500, contrastText: c.neutral975 },
@@ -96,8 +91,6 @@ function buildTheme(surface: Surface) {
         MuiLink: { defaultProps: { component: LinkBehavior } },
         MuiButtonBase: { defaultProps: { LinkComponent: LinkBehavior } },
         MuiButton: { defaultProps: { disableElevation: true } },
-        // Sem o overlay claro que o MUI aplica a superfícies elevadas no modo escuro:
-        // a identidade pede preto de verdade em drawers, modais e menus.
         MuiPaper: { styleOverrides: { root: { backgroundImage: 'none' } } },
         // A borda padrão do MUI (23% de opacidade) fica abaixo de 3:1 (WCAG 1.4.11).
         MuiOutlinedInput: {

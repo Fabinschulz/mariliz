@@ -1,7 +1,5 @@
-import type { HTMLAttributes, ReactNode } from 'react';
-
 import { cn } from '@/shared/utils';
-
+import type { HTMLAttributes, ReactNode } from 'react';
 import { SurfaceTheme, type Surface } from '../../../providers';
 import { Container } from '../../atoms/container';
 import styles from './Section.module.scss';
@@ -25,10 +23,6 @@ const SURFACE_BY_TONE: Record<SectionTone, Surface> = {
   accent: 'accent'
 };
 
-/**
- * Faixa da página. Uma única prop define a superfície para os tokens CSS
- * (data-surface) e para os componentes Synthra/MUI (tema equivalente).
- */
 export function Section({
   labelledBy,
   tone = 'dark',

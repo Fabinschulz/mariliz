@@ -1,10 +1,8 @@
 import { engagementModels } from '@/features/empresa';
 import { ContactCta, PageHeader, Section, SectionHeader } from '@/shared/components/ui';
 import { pageBreadcrumbs } from '@/shared/routing';
-
 import { services } from '../domain';
 import { ServiceGrid } from '../service-grid';
-
 import styles from './servicos-page.module.scss';
 
 const breadcrumbs = pageBreadcrumbs('services');

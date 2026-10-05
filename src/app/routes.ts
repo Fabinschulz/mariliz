@@ -1,5 +1,4 @@
 import { index, layout, route, type RouteConfig, type RouteConfigEntry } from '@react-router/dev/routes';
-
 import { routeManifest, type LayoutId, type RouteDefinition } from '../shared/routing/route-manifest';
 
 const layoutFiles: Record<LayoutId, string> = {

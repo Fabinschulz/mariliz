@@ -1,17 +1,9 @@
-import { useRef } from 'react';
-
 import { useGsap } from '@/shared/motion';
 import { formatOrdinal } from '@/shared/utils';
-
+import { useRef } from 'react';
 import { processSteps } from '../domain';
-
 import styles from './process-steps.module.scss';
 
-/**
- * Linha do tempo do método. O trilho preenche conforme o scroll e cada etapa
- * acende ao ser alcançada: mostra progresso e sequência, sem prender o scroll.
- * Sem JS/motion: trilho cheio e todas as etapas destacadas (estado final).
- */
 export function ProcessSteps() {
   const rootRef = useRef<HTMLDivElement>(null);
 

@@ -1,9 +1,7 @@
-import { ArrowRightIcon, Button } from '@synthra.io/ui-kit';
-
 import { SearchForm } from '@/features/busca';
 import { Container, StateMessage, WhatsAppButton } from '@/shared/components';
 import { pathTo } from '@/shared/routing';
-
+import { ArrowRightIcon, Button } from '@synthra.io/ui-kit';
 import styles from './nao-encontrado-page.module.scss';
 
 /**

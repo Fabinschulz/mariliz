@@ -1,16 +1,4 @@
-/**
- * Fonte única de verdade das rotas.
- *
- * Consumido por: app/routes.ts (router), app/static-paths.ts (prerender e sitemap),
- * navegação do shell, SEO e índice de busca. É dado puro (sem JSX, estilos ou
- * imports de features) para poder ser avaliado no Node em build time e para que
- * `shared` não dependa de camadas superiores.
- *
- * Nova página = route module fino em `src/app/routes/` + uma entrada aqui.
- */
-
 export type LayoutId = 'site';
-
 export type RouteId = 'home' | 'services' | 'service' | 'about' | 'contact' | 'search' | 'privacy' | 'notFound';
 
 export interface Seo {

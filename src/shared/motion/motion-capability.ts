@@ -10,11 +10,6 @@ interface NavigatorWithHints extends Navigator {
 const LOW_MEMORY_GB = 2;
 const LOW_CPU_CORES = 2;
 
-/**
- * Efeitos não essenciais ficam desligados em economia de dados ou em
- * aparelhos modestos. prefers-reduced-motion é tratado à parte (matchMedia),
- * porque pode mudar com a página aberta.
- */
 export function canAffordMotion(): boolean {
   const nav = navigator as NavigatorWithHints;
   if (nav.connection?.saveData) return false;

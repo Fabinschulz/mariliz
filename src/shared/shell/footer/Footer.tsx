@@ -1,11 +1,9 @@
-import { ArrowRightIcon } from '@synthra.io/ui-kit';
-import { Link } from 'react-router';
-
 import { Container, WhatsAppIcon } from '@/shared/components/ui';
 import { site } from '@/shared/config/site';
 import { getRoute, type StaticRouteId } from '@/shared/routing';
 import { externalLinkProps, whatsappUrl } from '@/shared/utils';
-
+import { ArrowRightIcon } from '@synthra.io/ui-kit';
+import { Link } from 'react-router';
 import { BrandLink } from '../brand-link';
 import styles from './footer.module.scss';
 

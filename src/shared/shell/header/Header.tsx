@@ -11,7 +11,6 @@ import styles from './header.module.scss';
 
 const navRoutes = getNavRoutes();
 
-/** Navbar em pílula flutuante: translúcida, com a página visível por trás. */
 export function Header({ actions }: { actions?: ReactNode }) {
   return (
     <header className={styles.header} data-surface="dark">

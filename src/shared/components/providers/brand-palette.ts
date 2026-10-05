@@ -1,6 +1,4 @@
 /**
- * Cores da marca para o tema MUI/Synthra. Espelham os primitivos de
- * `shared/styles/_tokens.scss`; um teste garante que os dois não divergem.
  *
  * #33C1BA → inovação / ação / inteligência
  * #050C0C → autoridade / tecnologia (ink: preto tingido de turquesa)

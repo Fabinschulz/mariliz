@@ -1,5 +1,4 @@
 import { useEffect, useEffectEvent, type DependencyList, type RefObject } from 'react';
-
 import { loadGsap, type GsapModules } from './load-gsap';
 import { canAffordMotion, MOTION_OK_QUERY } from './motion-capability';
 

@@ -1,12 +1,8 @@
-import { Link } from 'react-router';
-
-import { ArrowRightIcon } from '@synthra.io/ui-kit';
-
 import { servicePath } from '@/shared/routing';
 import { formatOrdinal } from '@/shared/utils';
-
+import { ArrowRightIcon } from '@synthra.io/ui-kit';
+import { Link } from 'react-router';
 import type { Service } from '../domain';
-
 import styles from './service-grid.module.scss';
 
 interface ServiceGridProps {
@@ -25,7 +21,6 @@ export function ServiceGrid({ services, headingLevel: Heading = 'h3' }: ServiceG
             <span>{service.shortName}</span>
           </div>
           <Heading className={styles.title}>
-            {/* O link cobre o card inteiro (::after), mantendo um único alvo acessível. */}
             <Link to={servicePath(service.slug)} prefetch="intent" viewTransition className={styles.link}>
               {service.name}
             </Link>

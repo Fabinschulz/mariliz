@@ -1,7 +1,5 @@
-import { useRef } from 'react';
-
 import { isBelowFold, useGsap } from '@/shared/motion';
-
+import { useRef } from 'react';
 import styles from './delivery-log.module.scss';
 
 interface LogStep {

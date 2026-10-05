@@ -12,14 +12,10 @@ interface Commitment {
   label: string;
 }
 
-/**
- * Compromissos verificáveis no lugar de métricas: sem números de clientes ou
- * projetos inventados. A quantidade de frentes vem do próprio conteúdo.
- */
 const commitments: Commitment[] = [
-  { value: String(services.length), label: 'Frentes integradas' },
-  { value: '100', accent: '%', label: 'Do código na sua organização' },
-  { value: 'Dia 1', label: 'Observabilidade em produção' },
+  { value: String(services.length), label: 'Frentes estratégicas' },
+  { value: '100', accent: '%', label: 'Rastreabilidade técnica' },
+  { value: '24/7', label: 'Observabilidade operacional' },
   { value: 'WCAG', accent: ' AA', label: 'Acessibilidade como critério' }
 ];
 

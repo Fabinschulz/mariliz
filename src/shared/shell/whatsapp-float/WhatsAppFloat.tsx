@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
-
 import { WhatsAppIcon } from '@/shared/components/ui';
 import { cn, externalLinkProps, whatsappUrl } from '@/shared/utils';
-
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 import styles from './whatsapp-float.module.scss';
 
 /** Áreas que já oferecem o WhatsApp (CTA final, rodapé). */

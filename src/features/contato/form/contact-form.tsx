@@ -8,10 +8,10 @@ import { site } from '@/shared/config/site';
 import { externalLinkProps, openWhatsApp, whatsappUrl } from '@/shared/utils';
 
 import {
-    contactFormSchema,
-    defaultContactForm,
-    MESSAGE_MAX_LENGTH,
-    type ContactFormValues
+  contactFormSchema,
+  defaultContactForm,
+  MESSAGE_MAX_LENGTH,
+  type ContactFormValues
 } from './contact-form-schema';
 import styles from './contact-form.module.scss';
 import { buildContactMessage, UNDECIDED_SERVICE_LABEL } from './contact-whatsapp-message';

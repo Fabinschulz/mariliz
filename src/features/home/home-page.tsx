@@ -8,7 +8,6 @@ import { Hero } from './hero';
 import styles from './home-page.module.scss';
 import { StackList } from './stack-list';
 
-/** Ritmo da página: ink (autoridade) alternando com faixas claras em névoa e branco (respiro). */
 export function HomePage() {
   return (
     <>

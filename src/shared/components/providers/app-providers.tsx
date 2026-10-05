@@ -1,6 +1,5 @@
 import { Provider } from '@synthra.io/ui-kit';
 import type { ReactNode } from 'react';
-
 import { themes, type Surface } from './theme';
 
 export function AppProviders({ children }: { children: ReactNode }) {

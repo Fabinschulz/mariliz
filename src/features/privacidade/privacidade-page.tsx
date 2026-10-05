@@ -1,12 +1,10 @@
 import { Container, PageHeader } from '@/shared/components/ui';
 import { site } from '@/shared/config/site';
 import { pageBreadcrumbs } from '@/shared/routing';
-
 import styles from './privacidade-page.module.scss';
 
 const breadcrumbs = pageBreadcrumbs('privacy');
 
-// ATENÇÃO: texto-base. Precisa de revisão jurídica antes da publicação.
 const sections = [
   {
     title: 'Quais dados coletamos',

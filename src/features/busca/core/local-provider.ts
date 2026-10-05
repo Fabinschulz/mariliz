@@ -1,13 +1,13 @@
 import { normalizeText, tokenize } from './normalize';
 import {
-    DEFAULT_SUGGESTION_LIMIT,
-    SEARCH_DOCUMENT_TYPES,
-    type SearchDocument,
-    type SearchDocumentType,
-    type SearchHit,
-    type SearchProvider,
-    type SearchQuery,
-    type SearchResult
+  DEFAULT_SUGGESTION_LIMIT,
+  SEARCH_DOCUMENT_TYPES,
+  type SearchDocument,
+  type SearchDocumentType,
+  type SearchHit,
+  type SearchProvider,
+  type SearchQuery,
+  type SearchResult
 } from './types';
 
 const DEFAULT_PAGE_SIZE = 10;
