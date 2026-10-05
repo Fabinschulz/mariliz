@@ -1,0 +1,240 @@
+// =============================================================================
+// Design tokens
+// Camadas: primitivos (paleta crua) → semânticos (intenção) → componentes.
+// Componentes usam SOMENTE tokens semânticos. Novo tema ou white-label =
+// redefinir os semânticos (e, se preciso, os primitivos) num novo seletor.
+// Contrastes verificados (WCAG 2.2): ver docs/DESIGN-SYSTEM.md.
+// =============================================================================
+
+@mixin theme-light {
+  color-scheme: light;
+
+  --color-background: var(--neutral-0);
+  --color-surface: var(--neutral-50);
+  --color-surface-raised: var(--neutral-0);
+  --color-surface-inverse: var(--neutral-975);
+  --color-overlay: rgb(5 12 12 / 0.48);
+
+  --color-text: var(--neutral-950);
+  --color-text-muted: var(--neutral-600);
+  --color-text-inverse: var(--neutral-50);
+
+  --color-primary: var(--teal-400);
+  --color-primary-hover: var(--teal-450);
+  --color-primary-active: var(--teal-500);
+  --color-on-primary: var(--neutral-975);
+  --color-primary-subtle: var(--teal-50);
+  --color-primary-text: var(--teal-700);
+
+  --color-border: var(--neutral-200);
+  --color-border-strong: var(--neutral-400);
+  --color-hairline: rgb(10 22 21 / 0.08); // contorno sutil de cards
+  --color-grid: rgb(10 22 21 / 0.05);
+  --color-focus: var(--teal-700);
+  --color-signal: var(--teal-400);
+
+  --color-error: #b42318;
+  --color-error-subtle: #fef3f2;
+  --color-success: #1c7f45;
+  --color-success-subtle: #ecfdf3;
+
+  --shadow-sm: 0 1px 2px rgb(10 22 21 / 0.06);
+  --shadow-md: 0 8px 24px -8px rgb(10 22 21 / 0.12), 0 2px 6px rgb(10 22 21 / 0.04);
+  --shadow-lg: 0 24px 64px -16px rgb(10 22 21 / 0.2);
+  --shadow-card: 0 16px 34px -28px rgb(10 22 21 / 0.45);
+  --shadow-card-hover: 0 24px 44px -26px rgb(10 22 21 / 0.5);
+}
+
+@mixin theme-dark {
+  color-scheme: dark;
+
+  --color-background: var(--neutral-975);
+  --color-surface: var(--neutral-950);
+  --color-surface-raised: var(--neutral-900);
+  --color-surface-inverse: var(--neutral-50);
+  --color-overlay: rgb(0 0 0 / 0.64);
+
+  --color-text: var(--neutral-50);
+  --color-text-muted: var(--neutral-350);
+  --color-text-inverse: var(--neutral-950);
+
+  --color-primary: var(--teal-400);
+  --color-primary-hover: var(--teal-300);
+  --color-primary-active: var(--teal-200);
+  --color-on-primary: var(--neutral-975);
+  --color-primary-subtle: rgb(51 193 186 / 0.12);
+  --color-primary-text: var(--teal-400);
+
+  --color-border: var(--neutral-800);
+  --color-border-strong: var(--neutral-500);
+  --color-hairline: rgb(255 255 255 / 0.08);
+  --color-grid: rgb(241 247 246 / 0.05);
+  --color-focus: var(--teal-400);
+  --color-signal: var(--teal-400);
+
+  --color-error: #f97066;
+  --color-error-subtle: rgb(249 112 102 / 0.12);
+  --color-success: #3fbf7f;
+  --color-success-subtle: rgb(63 191 127 / 0.12);
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 24px 64px -16px rgb(0 0 0 / 0.7);
+  --shadow-card: 0 16px 34px -24px rgb(0 0 0 / 0.8);
+  --shadow-card-hover: 0 24px 44px -22px rgb(0 0 0 / 0.85);
+}
+
+// Faixa turquesa cheia (CTA de conversão): texto e botões em ink.
+@mixin theme-accent {
+  color-scheme: light;
+
+  --color-background: var(--teal-400);
+  --color-surface: rgb(5 12 12 / 0.06);
+  --color-surface-raised: rgb(5 12 12 / 0.08);
+
+  --color-text: var(--neutral-975); // 8,9:1
+  --color-text-muted: var(--teal-900); // 5,2:1
+  --color-text-inverse: var(--neutral-50);
+
+  --color-primary: var(--neutral-975);
+  --color-primary-hover: var(--neutral-900);
+  --color-primary-active: var(--neutral-800);
+  --color-on-primary: var(--neutral-50); // 18,2:1
+  --color-primary-subtle: rgb(5 12 12 / 0.08);
+  --color-primary-text: var(--neutral-975);
+
+  --color-border: rgb(5 12 12 / 0.18);
+  --color-border-strong: var(--neutral-975);
+  --color-hairline: rgb(5 12 12 / 0.12);
+  --color-grid: rgb(5 12 12 / 0.06);
+  --color-focus: var(--neutral-975);
+  --color-signal: var(--neutral-975);
+
+  --shadow-glow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 12px 30px -14px rgb(5 12 12 / 0.8);
+  --shadow-glow-hover: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 18px 36px -14px rgb(5 12 12 / 0.9);
+}
+
+:root {
+  // --- Primitivos: teal derivado de #33C1BA (marca) ---------------------------
+  --teal-50: #ebfaf9;
+  --teal-100: #cff3f1;
+  --teal-200: #a3e7e3;
+  --teal-300: #5ccfc9; // hover/realce no escuro
+  --teal-400: #33c1ba; // marca
+  --teal-450: #2ab0a9;
+  --teal-500: #22a59f;
+  --teal-600: #168680;
+  --teal-700: #116b67;
+  --teal-800: #0f5451;
+  --teal-900: #0c403e;
+
+  // --- Primitivos: neutros tingidos de turquesa ----------------------------------
+  --neutral-0: #ffffff; // marca (light)
+  --neutral-50: #f1f7f6; // névoa: 3º tom claro e texto no escuro
+  --neutral-100: #e3eeec; // névoa profunda
+  --neutral-200: #cfdcda;
+  --neutral-350: #9baaa8;
+  --neutral-400: #839593;
+  --neutral-500: #627371;
+  --neutral-600: #4a5b59;
+  --neutral-700: #33433f;
+  --neutral-800: #1e302e;
+  --neutral-900: #142321;
+  --neutral-950: #0a1615;
+  --neutral-975: #050c0c; // ink: base escura do site
+  --neutral-1000: #000000; // preto puro (reservado)
+
+  // --- Tipografia ---------------------------------------------------------------
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  // Escala fluida: mínimo em 360px, máximo em 1440px.
+  --font-size-xs: 0.8125rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: clamp(1rem, 0.97rem + 0.14vw, 1.0625rem);
+  --font-size-lg: clamp(1.125rem, 1.08rem + 0.21vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.17rem + 0.37vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.33rem + 0.74vw, 2rem);
+  --font-size-3xl: clamp(1.875rem, 1.58rem + 1.3vw, 2.75rem);
+  --font-size-4xl: clamp(2.25rem, 1.75rem + 2.22vw, 3.75rem);
+  --font-size-display: clamp(2.5rem, 1.67rem + 3.7vw, 5rem);
+
+  --font-weight-display: 620; // Geist é variável: peso entre semibold e bold
+
+  --line-height-display: 1.03;
+  --line-height-tight: 1.06;
+  --line-height-snug: 1.2;
+  --line-height-normal: 1.65;
+  --letter-spacing-display: -0.045em; // títulos de hero e display
+  --letter-spacing-tight: -0.035em;
+
+  // --- Espaço (base 4px) --------------------------------------------------------
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-section: clamp(4rem, 2.5rem + 6.5vw, 8rem);
+  --gutter: clamp(1rem, 0.5rem + 2.2vw, 2.5rem);
+
+  // --- Layout ------------------------------------------------------------------
+  --container-max: 76rem;
+  --container-narrow: 46rem;
+  // Moldura do topo: navbar e conteúdo do hero compartilham a mesma largura.
+  --frame-max: 64rem;
+  --header-height: 3.5rem; // altura da pílula da navbar
+  --header-gap: var(--space-3); // respiro entre a pílula e o topo da tela
+  // Espaço que o header flutuante ocupa sobre o conteúdo.
+  --header-offset: calc(var(--header-height) + var(--header-gap) * 2);
+
+  // --- Forma -------------------------------------------------------------------
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --shadow-glow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 10px 30px -12px rgb(51 193 186 / 0.75);
+  --shadow-glow-hover: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 16px 36px -12px rgb(51 193 186 / 0.9);
+
+  // --- Motion ------------------------------------------------------------------
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1); // hover e estados: desacelera com elasticidade
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1); // entradas e revelações
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 500ms; // hover com --ease-spring
+  --duration-reveal: 950ms;
+
+  // --- Camadas -----------------------------------------------------------------
+  --z-float: 40;
+  --z-header: 50;
+  --z-dialog: 100;
+  --z-skip-link: 200;
+
+  // Identidade: ink (preto tingido de turquesa) é a base (autoridade, tecnologia); branco entra em faixas de
+  // respiro; turquesa aparece em pontos pequenos (ação, foco, progresso).
+  @include theme-dark;
+}
+
+// Superfícies: cada faixa da página declara o seu fundo e herda os tokens certos.
+// O componente Section também aplica o tema MUI equivalente (Synthra).
+[data-surface='light'] {
+  @include theme-light;
+}
+
+[data-surface='dark'] {
+  @include theme-dark;
+}
+
+[data-surface='accent'] {
+  @include theme-accent;
+}

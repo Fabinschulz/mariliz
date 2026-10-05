@@ -1,0 +1,160 @@
+@use '@/shared/styles/abstracts' as *;
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-border);
+  @include bleed-under-header(var(--space-12));
+
+  @include up(lg) {
+    padding-bottom: var(--space-20);
+    @include bleed-under-header(var(--space-16));
+  }
+}
+
+.content {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  // Mesma moldura da navbar: o hero e a pílula alinham pelas bordas.
+  max-width: calc(var(--frame-max) + var(--gutter) * 2);
+}
+
+.badge {
+  @include eyebrow-pill;
+  color: var(--teal-300);
+  letter-spacing: 0.05em;
+
+  @include up(md) {
+    letter-spacing: 0.12em;
+  }
+}
+
+.title {
+  font-size: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.line {
+  display: block;
+}
+
+.accent {
+  color: var(--color-signal);
+}
+
+.lede {
+  max-width: 40rem;
+  font-size: var(--font-size-lg);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.footer {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6) var(--space-8);
+
+  @include up(md) {
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+    gap: var(--space-10);
+  }
+}
+
+// Valor acima do rótulo visualmente; para leitores de tela, "rótulo: valor".
+.highlight {
+  display: flex;
+  flex-direction: column-reverse;
+  // Em column-reverse, flex-end é o topo: valores alinhados mesmo com rótulos de alturas diferentes.
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.highlightValue {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.highlightLabel {
+  @include eyebrow;
+  max-width: 22ch;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+
+  @include up(lg) {
+    justify-content: flex-end;
+  }
+
+  > * {
+    flex: 1 1 100%;
+    justify-content: space-between !important;
+
+    @include up(sm) {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+// Entrada só de elementos secundários (nunca o h1 nem o parágrafo, candidatos a LCP).
+@include motion-safe {
+  .badge,
+  .highlight,
+  .actions {
+    animation: rise 700ms var(--ease-out) both;
+  }
+
+  .badge {
+    animation-delay: 80ms;
+  }
+
+  .highlight {
+    animation-delay: calc(320ms + var(--i, 0) * 80ms);
+  }
+
+  .highlight:nth-child(2) {
+    --i: 1;
+  }
+
+  .highlight:nth-child(3) {
+    --i: 2;
+  }
+
+  .highlight:nth-child(4) {
+    --i: 3;
+  }
+
+  .actions {
+    animation-delay: 560ms;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}

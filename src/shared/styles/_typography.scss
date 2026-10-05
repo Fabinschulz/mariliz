@@ -1,0 +1,40 @@
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+:where(h1, h2, h3, h4) {
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  text-wrap: balance;
+}
+
+// Títulos grandes: entrelinha mais curta para o bloco ficar compacto.
+:where(h1, h2) {
+  line-height: var(--line-height-tight);
+}
+
+:where(p, li) {
+  text-wrap: pretty;
+}
+
+:where(a) {
+  color: var(--color-primary-text);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+:where(code, kbd) {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}

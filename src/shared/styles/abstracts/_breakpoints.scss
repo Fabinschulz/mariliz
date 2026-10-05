@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+// Mobile-first: estilos base valem para o menor viewport; breakpoints só adicionam.
+// sm 480px (mobile grande), md 768px (tablet), lg 1024px (notebook), xl 1280px, xxl 1536px.
+$breakpoints: (
+  sm: 30rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 80rem,
+  xxl: 96rem
+);
+
+@mixin up($name) {
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin down($name) {
+  @media (max-width: calc(#{map.get($breakpoints, $name)} - 0.02px)) {
+    @content;
+  }
+}

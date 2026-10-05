@@ -1,0 +1,40 @@
+@use '@/shared/styles/abstracts' as *;
+
+.models {
+  display: grid;
+  gap: var(--space-5);
+
+  @include up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.model {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-6);
+  @include card;
+}
+
+.modelName {
+  font-size: var(--font-size-xl);
+}
+
+.modelDescription {
+  color: var(--color-text-muted);
+}
+
+.bestFor {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+.bestForLabel {
+  @include eyebrow;
+  color: var(--color-primary-text);
+}

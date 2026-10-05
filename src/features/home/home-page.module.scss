@@ -1,0 +1,9 @@
+@use '@/shared/styles/abstracts' as *;
+
+.stackIntro {
+  margin-bottom: var(--space-12);
+
+  @include up(lg) {
+    margin-bottom: var(--space-16);
+  }
+}

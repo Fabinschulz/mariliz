@@ -1,0 +1,91 @@
+@use '@/shared/styles/abstracts' as *;
+
+$size: 3.5rem;
+
+.float {
+  position: fixed;
+  right: max(var(--space-5), env(safe-area-inset-right));
+  bottom: max(var(--space-5), env(safe-area-inset-bottom));
+  z-index: var(--z-float);
+  display: grid;
+  place-items: center;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: var(--teal-400);
+  color: var(--neutral-975); // ink sobre turquesa: 8,9:1
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.4),
+    0 12px 32px -8px rgb(51 193 186 / 0.45);
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    opacity var(--duration-slow) var(--ease-spring),
+    visibility 0s;
+
+  @include hover {
+    transform: scale(1.06);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--neutral-0);
+    outline-offset: 3px;
+  }
+}
+
+// `visibility` só muda ao fim do fade.
+.hidden {
+  opacity: 0;
+  transform: translateY(12px) scale(0.85);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    opacity var(--duration-slow) var(--ease-spring),
+    visibility 0s linear var(--duration-slow);
+}
+
+.icon {
+  position: relative;
+  font-size: 1.75rem !important;
+}
+
+.halo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: var(--teal-400);
+  opacity: 0;
+}
+
+@include motion-safe {
+  .float {
+    animation: float-in 420ms var(--ease-out) 600ms backwards;
+  }
+
+  .halo {
+    animation: ping 1.6s var(--ease-out) 1.2s 3;
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.85);
+  }
+}
+
+@keyframes ping {
+  0% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}

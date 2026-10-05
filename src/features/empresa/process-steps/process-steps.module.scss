@@ -1,0 +1,81 @@
+@use '@/shared/styles/abstracts' as *;
+
+$marker-size: 2.75rem;
+
+.root {
+  position: relative;
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-10);
+  list-style: none;
+  padding: 0;
+}
+
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc($marker-size / 2);
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+.railFill {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-primary);
+  transform-origin: top;
+}
+
+.step {
+  // 1 = etapa alcançada. Sem JS fica em 1 (estado final legível).
+  --step-progress: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: $marker-size 1fr;
+  gap: var(--space-5);
+
+  @include up(md) {
+    gap: var(--space-8);
+  }
+}
+
+.marker {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: $marker-size;
+  height: $marker-size;
+  border: 1px solid
+    color-mix(in srgb, var(--color-primary) calc(var(--step-progress) * 100%), var(--color-border-strong));
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+}
+
+.content {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+  opacity: calc(0.45 + var(--step-progress) * 0.55);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+}
+
+.description {
+  max-width: 52ch;
+  color: var(--color-text-muted);
+}
+
+.output {
+  @include eyebrow;
+  margin-top: var(--space-2);
+  color: var(--color-primary-text);
+  letter-spacing: 0.04em;
+}

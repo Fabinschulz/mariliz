@@ -1,0 +1,137 @@
+@mixin focus-ring($offset: 3px) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: $offset;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Hover só em dispositivos com hover de verdade: evita "hover grudado" no touch.
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin motion-safe {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Rótulo de seção em pílula, igual em qualquer superfície.
+@mixin eyebrow-pill {
+  @include eyebrow;
+  @include signal-dot;
+  width: fit-content;
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+  border-radius: var(--radius-pill);
+  background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary-text);
+  letter-spacing: 0.12em;
+}
+
+// Legenda em mono (telefone, link alternativo).
+@mixin caption-mono {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+// Bloco destacado sobre a faixa.
+@mixin card($background: var(--color-surface-raised)) {
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  background-color: $background;
+}
+
+// Link que cobre o card inteiro (o card precisa de position: relative): um único
+// alvo para leitores de tela, com o foco desenhado no contorno do card.
+@mixin stretched-link($radius: var(--radius-lg)) {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: $radius;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      @include focus-ring(2px);
+    }
+  }
+}
+
+// Bloco de topo de página (hero, cabeçalho interno): o fundo passa por trás da
+// navbar flutuante, e o conteúdo começa abaixo dela. O <main> já reserva o offset.
+@mixin bleed-under-header($extra-top: 0px) {
+  margin-top: calc(-1 * var(--header-offset));
+  padding-top: calc(var(--header-offset) + #{$extra-top});
+}
+
+@mixin blueprint-grid($size: 48px) {
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: $size $size;
+}
+
+// "Ponto de turquesa": pequeno marcador de sinal antes de rótulos. Decorativo
+// (não carrega informação), por isso usa o turquesa puro em qualquer superfície.
+@mixin signal-dot($size: 6px) {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: var(--color-signal);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-signal) 18%, transparent);
+  }
+}
+
+// Botão circular de ícone usado dentro da navbar em pílula (busca, menu).
+@mixin round-icon-button($size: 2.5rem) {
+  display: inline-grid;
+  place-items: center;
+  width: $size;
+  height: $size;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 0.04);
+  color: var(--color-text);
+  transition:
+    background-color var(--duration-slow) var(--ease-spring),
+    border-color var(--duration-slow) var(--ease-spring);
+
+  @include hover {
+    border-color: rgb(255 255 255 / 0.25);
+    background-color: rgb(255 255 255 / 0.08);
+  }
+}

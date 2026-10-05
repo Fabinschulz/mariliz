@@ -1,0 +1,118 @@
+@use '@/shared/styles/abstracts' as *;
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+.phone {
+  @include caption-mono;
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-12);
+
+  @include up(lg) {
+    grid-template-columns: 7fr 4fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+.formColumn {
+  min-width: 0;
+}
+
+// Raio externo = raio do cartão + respiro da moldura.
+.frame {
+  margin-top: var(--space-8);
+  padding: var(--space-2);
+  border: 1px solid var(--color-hairline);
+  border-radius: calc(var(--radius-lg) + var(--space-2));
+  background-color: color-mix(in srgb, var(--color-text) 4%, transparent);
+  box-shadow: var(--shadow-card);
+}
+
+.card {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-raised);
+  box-shadow: 0 1px 2px rgb(10 22 21 / 0.06);
+
+  @include up(md) {
+    padding: var(--space-10);
+  }
+}
+
+.context {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.contextAccent {
+  font-weight: 550;
+  color: var(--color-primary-text);
+}
+
+.contextLink {
+  font-weight: 550;
+  color: var(--color-primary-text);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentcolor 35%, transparent);
+
+  @include hover {
+    text-decoration-color: currentcolor;
+  }
+}
+
+.columnTitle {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-xl);
+}
+
+.columnIntro {
+  max-width: 52ch;
+  color: var(--color-text-muted);
+}
+
+.aside {
+  @include up(lg) {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-8));
+  }
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+}
+
+.stepIndex {
+  padding-top: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary-text);
+}
+
+.stepTitle {
+  font-size: var(--font-size-base);
+}
+
+.stepDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

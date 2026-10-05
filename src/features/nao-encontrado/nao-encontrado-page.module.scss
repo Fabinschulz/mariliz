@@ -1,0 +1,15 @@
+@use '@/shared/styles/abstracts' as *;
+
+.page {
+  padding-block: var(--space-section);
+}
+
+.code {
+  margin-bottom: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-display);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-primary);
+  letter-spacing: -0.04em;
+}

@@ -1,0 +1,24 @@
+@use '@/shared/styles/abstracts' as *;
+
+.mission {
+  display: grid;
+  gap: var(--space-12);
+  padding-inline: 0;
+}
+
+.missionTitle {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-snug);
+}
+
+.beliefs {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.belief {
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--color-primary);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}

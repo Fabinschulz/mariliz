@@ -1,0 +1,16 @@
+.content {
+  display: grid;
+  gap: var(--space-10);
+  padding-block: var(--space-section);
+}
+
+.section {
+  display: grid;
+  gap: var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+}

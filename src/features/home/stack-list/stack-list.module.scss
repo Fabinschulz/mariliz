@@ -1,0 +1,30 @@
+@use '@/shared/styles/abstracts' as *;
+
+.groups {
+  display: grid;
+  gap: var(--space-6);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8) var(--space-12);
+  }
+}
+
+.group {
+  display: grid;
+  gap: var(--space-3);
+
+  @include up(lg) {
+    grid-template-columns: 6rem 1fr;
+    align-items: baseline;
+  }
+}
+
+.label {
+  @include eyebrow;
+  color: var(--color-primary-text);
+}
+
+.items {
+  margin: 0;
+}

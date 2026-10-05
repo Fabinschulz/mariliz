@@ -1,0 +1,45 @@
+@use '@/shared/styles/abstracts' as *;
+
+.pageHeader {
+  position: relative;
+  padding-bottom: var(--space-16);
+  @include bleed-under-header(var(--space-8));
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  @include blueprint-grid(48px);
+
+  @include up(md) {
+    padding-bottom: var(--space-20);
+    @include bleed-under-header(var(--space-12));
+  }
+}
+
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.content {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 48rem;
+  margin-top: var(--space-10);
+}
+
+.eyebrow {
+  @include eyebrow-pill;
+}
+
+.title {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  max-width: 40rem;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}

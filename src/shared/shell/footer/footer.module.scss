@@ -1,0 +1,135 @@
+@use '@/shared/styles/abstracts' as *;
+
+.footer {
+  padding-top: var(--space-16);
+  padding-bottom: max(var(--space-8), env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-10);
+
+  @include up(md) {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.brand {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.logo {
+  color: var(--color-text);
+}
+
+.tagline {
+  color: var(--color-text-muted);
+}
+
+.contactCard {
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 30rem;
+  margin-top: var(--space-2);
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  @include card;
+  transition: border-color var(--duration-slow) var(--ease-spring);
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+
+    .contactArrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.contactLabel {
+  @include eyebrow;
+  display: flex;
+  padding-right: var(--space-12); // espaço da seta
+  gap: var(--space-2);
+  align-items: center;
+  color: var(--color-text-muted);
+
+  svg {
+    color: var(--color-signal);
+  }
+}
+
+.contactNumber {
+  justify-self: start;
+  padding-right: var(--space-12);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-display);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+
+  @include stretched-link;
+}
+
+.contactHint {
+  margin-top: var(--space-1);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.contactArrow {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  transition: transform var(--duration-slow) var(--ease-spring);
+}
+
+.columnTitle {
+  @include eyebrow;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+}
+
+.linkList {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.link {
+  display: inline-flex;
+  min-height: 2.25rem;
+  align-items: center;
+  color: var(--color-text);
+  text-decoration: none;
+
+  @include hover {
+    color: var(--color-primary-text);
+  }
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-16);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

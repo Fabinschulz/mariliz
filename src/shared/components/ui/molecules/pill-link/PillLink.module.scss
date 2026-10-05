@@ -1,0 +1,72 @@
+@use '@/shared/styles/abstracts' as *;
+
+// Os seletores ganham uma classe extra (.pill) para vencer a especificidade do Emotion
+// sem `!important`.
+.pill.pill {
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    box-shadow var(--duration-slow) var(--ease-spring),
+    background-color var(--duration-slow) var(--ease-spring),
+    border-color var(--duration-slow) var(--ease-spring);
+
+  :global(.MuiButton-endIcon) {
+    margin: 0;
+  }
+}
+
+.solid.solid {
+  box-shadow: var(--shadow-glow);
+
+  @include hover {
+    box-shadow: var(--shadow-glow-hover);
+  }
+}
+
+.outline.outline {
+  border-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+  background-color: color-mix(in srgb, var(--color-text) 3%, transparent);
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--color-text) 40%, transparent);
+    background-color: color-mix(in srgb, var(--color-text) 6%, transparent);
+  }
+}
+
+.iconCircle {
+  display: grid;
+  place-items: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+  transition: transform var(--duration-slow) var(--ease-spring);
+
+  svg {
+    font-size: 1rem !important; // a Synthra fixa o tamanho do ícone com !important por tamanho de botão
+  }
+}
+
+.solid .iconCircle {
+  background-color: color-mix(in srgb, currentcolor 16%, transparent);
+}
+
+.outline .iconCircle {
+  background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+@include motion-safe {
+  .pill {
+    @include hover {
+      transform: translateY(-2px);
+
+      .iconCircle {
+        transform: translateX(2px) rotate(-12deg);
+      }
+    }
+  }
+}

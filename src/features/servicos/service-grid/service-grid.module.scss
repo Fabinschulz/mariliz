@@ -1,0 +1,77 @@
+@use '@/shared/styles/abstracts' as *;
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-6);
+  @include card;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    box-shadow var(--duration-slow) var(--ease-spring);
+
+  @include up(lg) {
+    padding: var(--space-10);
+  }
+
+  @include hover {
+    box-shadow: var(--shadow-card-hover);
+
+    .more {
+      color: var(--color-primary-text);
+    }
+
+    @include motion-safe {
+      transform: translateY(-4px);
+    }
+  }
+
+  &:focus-within {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+}
+
+.link {
+  color: var(--color-text);
+  text-decoration: none;
+
+  @include stretched-link;
+}
+
+.summary {
+  color: var(--color-text-muted);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: 550;
+  transition: color var(--duration-slow) var(--ease-spring);
+}

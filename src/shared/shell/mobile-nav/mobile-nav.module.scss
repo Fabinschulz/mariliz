@@ -1,0 +1,42 @@
+@use '@/shared/styles/abstracts' as *;
+
+.trigger {
+  @include round-icon-button;
+
+  @include up(lg) {
+    display: none;
+  }
+}
+
+.list {
+  display: grid;
+  border-top: 1px solid var(--color-border);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 4rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-tight);
+  text-decoration: none;
+
+  &[aria-current='page'] {
+    @include signal-dot(8px);
+    display: flex; // mantém a linha divisória na largura total
+  }
+}
+
+.footer {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  margin-top: var(--space-10);
+}
+
+.phone {
+  @include caption-mono;
+}

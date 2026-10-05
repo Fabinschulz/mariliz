@@ -1,0 +1,119 @@
+@use '@/shared/styles/abstracts' as *;
+
+.fields {
+  display: grid;
+  gap: var(--space-5);
+
+  :global {
+    .MuiFormControl-root {
+      gap: var(--space-2);
+    }
+
+    .MuiInputLabel-root {
+      position: static;
+      max-width: none;
+      transform: none;
+      font-family: var(--font-sans);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+
+      &.Mui-focused {
+        color: var(--color-primary-text);
+      }
+
+      &.Mui-error {
+        color: var(--color-error);
+      }
+    }
+
+    .MuiFormLabel-asterisk {
+      color: inherit;
+    }
+
+    .MuiOutlinedInput-root {
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface-raised);
+      transition: box-shadow var(--duration-slow) var(--ease-spring);
+
+      &.Mui-focused {
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 18%, transparent);
+      }
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      top: 0;
+      border-color: var(--color-border-strong); // 3,1:1 no branco (WCAG 1.4.11)
+      border-radius: inherit;
+
+      legend {
+        display: none;
+      }
+    }
+
+    .MuiInputBase-input,
+    .MuiInputBase-input::placeholder,
+    .MuiSelect-select {
+      font-family: var(--font-sans);
+      font-size: var(--font-size-base);
+    }
+
+    .MuiInputBase-input {
+      padding-inline: var(--space-4);
+    }
+
+    .MuiInputBase-multiline {
+      padding: var(--space-4);
+
+      textarea {
+        padding: 0;
+      }
+    }
+
+    .MuiInputBase-input::placeholder {
+      color: var(--color-text-muted);
+      opacity: 1;
+    }
+
+    .MuiFormHelperText-root {
+      margin-inline: 0;
+      font-size: var(--font-size-sm);
+    }
+  }
+}
+
+.row {
+  display: grid;
+  gap: var(--space-5);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-6);
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+.submit {
+  @include down(sm) {
+    width: 100%;
+    justify-content: space-between !important;
+  }
+}
+
+.note {
+  flex: 1 1 16rem;
+  max-width: 34ch;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}

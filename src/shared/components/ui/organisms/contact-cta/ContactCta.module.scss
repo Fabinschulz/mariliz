@@ -1,0 +1,49 @@
+@use '@/shared/styles/abstracts' as *;
+
+.cta {
+  display: grid;
+  gap: var(--space-8);
+  align-items: end;
+
+  @include up(lg) {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.text {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  max-width: 20ch;
+}
+
+.description {
+  max-width: 48ch;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+}
+
+.actions {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+
+  @include up(lg) {
+    justify-items: end;
+  }
+}
+
+.alternative {
+  @include caption-mono;
+}
+
+.formLink {
+  color: var(--color-text);
+
+  @include hover {
+    color: var(--color-primary-text);
+  }
+}
