@@ -17,6 +17,8 @@ export const site = {
   },
   defaultOgImage: '/og/default.png',
   themeColor: '#050c0c',
+  // Token público de verificação do Google Search Console (método de metatag).
+  googleSiteVerification: 'oXT81t5n27FaSyp2DugtWBfq8i698kV7ol3-1radvrI',
   social: [] as ReadonlyArray<{ label: string; url: string }>
 } as const;
 
