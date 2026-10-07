@@ -25,6 +25,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={site.themeColor} />
         <meta name="color-scheme" content="dark" />
+        <meta name="google-site-verification" content={site.googleSiteVerification} />
         <Meta />
         <Links />
       </head>
