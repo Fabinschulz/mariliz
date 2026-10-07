@@ -86,7 +86,8 @@ async function main() {
 
   const outputs = [
     ['favicon.svg', markSvg(32)],
-    ['favicon.ico', pngToIco(renderPng(markSvg(32), 32), 32)],
+    ['favicon.ico', pngToIco(renderPng(markSvg(48), 48), 48)],
+    ['icons/favicon-96.png', renderPng(markSvg(96), 96)],
     ['icons/apple-touch-icon.png', renderPng(markSvg(180, { padding: 3 }), 180)],
     ['icons/icon-192.png', renderPng(markSvg(192), 192)],
     ['icons/icon-512.png', renderPng(markSvg(512), 512)],

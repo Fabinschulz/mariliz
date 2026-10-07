@@ -3,6 +3,7 @@ import { pathTo, type Crumb } from '../routing';
 
 const CONTEXT = 'https://schema.org';
 const ORGANIZATION_ID = `${site.url}/#organization`;
+const LOGO = { path: '/icons/icon-512.png', size: 512 };
 
 /** "5511943685632" → "+55-11-94368-5632" (formato recomendado pelo schema.org). */
 function toSchemaPhone(e164: string): string {
@@ -15,10 +16,16 @@ export function organizationSchema() {
     '@type': 'Organization',
     '@id': ORGANIZATION_ID,
     name: site.name,
+    alternateName: site.alternateNames,
     legalName: site.legalName,
     taxID: site.cnpj,
     url: site.url,
-    logo: absoluteUrl('/icons/icon-512.png'),
+    logo: {
+      '@type': 'ImageObject',
+      url: absoluteUrl(LOGO.path),
+      width: LOGO.size,
+      height: LOGO.size
+    },
     description: site.description,
     contactPoint: {
       '@type': 'ContactPoint',
@@ -36,6 +43,7 @@ export function websiteSchema() {
     '@context': CONTEXT,
     '@type': 'WebSite',
     name: site.name,
+    alternateName: site.alternateNames,
     url: site.url,
     inLanguage: site.language,
     publisher: { '@id': ORGANIZATION_ID },
