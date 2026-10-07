@@ -12,7 +12,8 @@ import type { Route } from './+types/root';
 export const links: Route.LinksFunction = () => [
   { rel: 'preload', href: geistFontUrl, as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' },
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-  { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
+  { rel: 'icon', href: '/icons/favicon-96.png', type: 'image/png', sizes: '96x96' },
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
   { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png' },
   { rel: 'manifest', href: '/site.webmanifest' }
 ];

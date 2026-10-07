@@ -3,6 +3,8 @@ import { getPublicEnv } from '../utils/lib/env';
 export const site = {
   name: 'Mariliz',
   legalName: 'Mariliz Tecnologia',
+  /** Outras formas como a marca é buscada (o domínio é marilize.com.br). */
+  alternateNames: ['Marilize', 'Mariliz Tecnologia'],
   cnpj: '46.498.841/0001-71',
   url: getPublicEnv().VITE_SITE_URL,
   locale: 'pt_BR',
