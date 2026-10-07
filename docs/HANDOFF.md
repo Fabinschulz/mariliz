@@ -14,7 +14,7 @@
 
 ## Pendências que dependem de vocês
 
-1. **Domínio definitivo** → `VITE_SITE_URL` (hoje `https://www.mariliz.com.br`).
+1. **Domínio definitivo** → `VITE_SITE_URL` (hoje `https://www.marilize.com.br`).
 2. **Revisão jurídica** da política de privacidade (texto-base atualizado para WhatsApp).
 3. Revisar a copy em `src/features/*/domain` (ex.: "conversa de 30 minutos sem custo").
 4. Redes sociais em `site.social` (alimenta o `sameAs` do JSON-LD).

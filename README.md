@@ -24,9 +24,9 @@ npm run dev        # http://localhost:5173
 
 Copie `.env.example` para `.env`.
 
-| Variável        | Uso                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| `VITE_SITE_URL` | URL canônica (canonical, Open Graph, sitemap, JSON-LD). Padrão: `https://www.mariliz.com.br` |
+| Variável        | Uso                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| `VITE_SITE_URL` | URL canônica (canonical, Open Graph, sitemap, JSON-LD). Padrão: `https://www.marilize.com.br` |
 
 O contato é só por WhatsApp; número e mensagem padrão ficam em `src/shared/config/site.ts`.
 

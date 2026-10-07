@@ -3,7 +3,7 @@ import { z } from 'zod';
 const envSchema = z.object({
   VITE_SITE_URL: z
     .url()
-    .default('https://www.mariliz.com.br')
+    .default('https://www.marilize.com.br')
     .transform((url) => url.replace(/\/+$/, ''))
 });
 
