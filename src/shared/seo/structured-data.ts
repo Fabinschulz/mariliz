@@ -34,7 +34,7 @@ export function organizationSchema() {
       availableLanguage: 'pt-BR',
       areaServed: 'BR'
     },
-    sameAs: site.social.map((profile) => profile.url)
+    sameAs: [site.googleBusinessProfile, ...Object.values(site.social).map((profile) => profile.url)]
   };
 }
 
