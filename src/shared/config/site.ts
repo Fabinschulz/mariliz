@@ -21,11 +21,12 @@ export const site = {
   themeColor: '#050c0c',
   // Token público de verificação do Google Search Console (método de metatag).
   googleSiteVerification: 'oXT81t5n27FaSyp2DugtWBfq8i698kV7ol3-1radvrI',
-  /** Perfis oficiais da empresa: viram o `sameAs` do JSON-LD. */
-  social: [{ label: 'Google', url: 'https://www.google.com/maps?cid=6340100272920904261' }] as ReadonlyArray<{
-    label: string;
-    url: string;
-  }>
+  /** Perfil da Empresa no Google (URL estável pelo CID). */
+  googleBusinessProfile: 'https://www.google.com/maps?cid=6340100272920904261',
+  /** Redes sociais exibidas no rodapé. */
+  social: {
+    instagram: { label: 'Instagram', handle: '@mariliz.com.br', url: 'https://www.instagram.com/mariliz.com.br/' }
+  }
 } as const;
 
 export function absoluteUrl(path: string): string {

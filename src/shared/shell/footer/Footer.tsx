@@ -1,4 +1,4 @@
-import { Container, WhatsAppIcon } from '@/shared/components/ui';
+import { Container, InstagramIcon, WhatsAppIcon } from '@/shared/components/ui';
 import { site } from '@/shared/config/site';
 import { getRoute, type StaticRouteId } from '@/shared/routing';
 import { externalLinkProps, whatsappUrl } from '@/shared/utils';
@@ -62,6 +62,22 @@ function ContactCard() {
   );
 }
 
+function SocialLinks() {
+  const { instagram } = site.social;
+
+  return (
+    <ul role="list" aria-label="Redes sociais" className={styles.social}>
+      <li>
+        <a href={instagram.url} {...externalLinkProps} className={styles.socialLink}>
+          <InstagramIcon fontSize="small" />
+          {instagram.handle}
+          <span className="visually-hidden"> no {instagram.label} (abre em nova aba)</span>
+        </a>
+      </li>
+    </ul>
+  );
+}
+
 export function Footer({ serviceLinks }: { serviceLinks: FooterLink[] }) {
   const year = new Date().getFullYear();
 
@@ -73,6 +89,7 @@ export function Footer({ serviceLinks }: { serviceLinks: FooterLink[] }) {
             <BrandLink className={styles.logo} />
             <p className={styles.tagline}>{site.tagline}.</p>
             <ContactCard />
+            <SocialLinks />
           </div>
           <FooterColumn id="footer-services" title="Serviços" links={serviceLinks} />
           <FooterColumn id="footer-company" title="Empresa" links={companyLinks} />
