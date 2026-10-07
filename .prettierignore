@@ -3,3 +3,5 @@ build
 node_modules
 package-lock.json
 public/og
+# Arquivo de verificação do Google Search Console: o conteúdo precisa ficar exatamente como o Google gerou.
+public/google*.html
