@@ -21,7 +21,11 @@ export const site = {
   themeColor: '#050c0c',
   // Token público de verificação do Google Search Console (método de metatag).
   googleSiteVerification: 'oXT81t5n27FaSyp2DugtWBfq8i698kV7ol3-1radvrI',
-  social: [] as ReadonlyArray<{ label: string; url: string }>
+  /** Perfis oficiais da empresa: viram o `sameAs` do JSON-LD. */
+  social: [{ label: 'Google', url: 'https://www.google.com/maps?cid=6340100272920904261' }] as ReadonlyArray<{
+    label: string;
+    url: string;
+  }>
 } as const;
 
 export function absoluteUrl(path: string): string {
