@@ -52,8 +52,8 @@ function ContactCard() {
       </a>
       <p className={styles.contactHint}>
         Atendimento de Segunda a Sexta-Feira das 08h às 18h, exceto feriados. Este é o nosso WhatsApp para
-        Relacionamento com o Cliente. Nele você pode esclarecer dúvidas e solicitar suporte transacional de suas
-        operações de crédito.
+        Relacionamento com o Cliente. Nele você pode tirar dúvidas, pedir suporte para os sistemas que desenvolvemos e
+        operamos para você ou conversar sobre um novo projeto.
       </p>
       <span className={styles.contactArrow} aria-hidden="true">
         <ArrowRightIcon fontSize="inherit" />
