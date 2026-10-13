@@ -20,5 +20,5 @@ export function getConcretePaths(route: RouteDefinition): string[] {
 
 export function getPrerenderPaths(): string[] {
   const pagePaths = routeManifest.flatMap(getConcretePaths);
-  return [...pagePaths, NOT_FOUND_PRERENDER_PATH, '/sitemap.xml', '/robots.txt'];
+  return [...pagePaths, NOT_FOUND_PRERENDER_PATH, '/sitemap.xml', '/robots.txt', '/llms.txt'];
 }

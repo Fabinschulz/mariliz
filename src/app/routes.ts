@@ -15,7 +15,8 @@ function buildPageRoutes(layoutId: LayoutId): RouteConfigEntry[] {
 
 const resourceRoutes: RouteConfigEntry[] = [
   route('sitemap.xml', 'routes/sitemap.xml.ts'),
-  route('robots.txt', 'routes/robots.txt.ts')
+  route('robots.txt', 'routes/robots.txt.ts'),
+  route('llms.txt', 'routes/llms.txt.ts')
 ];
 
 export default [
