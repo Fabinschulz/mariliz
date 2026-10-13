@@ -55,7 +55,7 @@ src/
 │   └── routes/                # route modules finos: meta + componente da feature
 │       ├── home.tsx · servicos.tsx · servico.tsx (/servicos/:slug)
 │       ├── sobre.tsx · contato.tsx · busca.tsx · privacidade.tsx · not-found.tsx (*)
-│       └── sitemap.xml.ts · robots.txt.ts   # resource routes (só loader)
+│       └── sitemap.xml.ts · robots.txt.ts · llms.txt.ts   # resource routes (só loader)
 ├── features/                  # um slice por domínio (nomes em pt-BR)
 │   ├── home/ · sobre/ · privacidade/ · nao-encontrado/
 │   ├── servicos/{domain, list, detail, service-grid, index.ts}
@@ -134,7 +134,12 @@ Breadcrumb, Alert, Drawer, Modal, ícones) e manter SCSS Modules para layout e i
 
 `buildMeta` (title, description, canonical, OG, Twitter, robots), `routeMeta` com BreadcrumbList
 automático, `Organization` com `contactPoint` do WhatsApp, `WebSite` + `SearchAction`, `Service`.
-Sitemap e robots pré-renderizados do manifest. 404 servido com status 404.
+Sitemap, robots e `llms.txt` (resumo da empresa para assistentes de IA) pré-renderizados do manifest.
+404 servido com status 404.
+
+IndexNow: a chave fica em `public/<chave>.txt` e em `scripts/indexnow.mjs`. A action
+`.github/workflows/indexnow.yml` roda o script depois de cada deploy de produção da Vercel e envia
+as URLs do sitemap ao Bing, índice que o ChatGPT usa na busca.
 
 ## 9. Busca
 
